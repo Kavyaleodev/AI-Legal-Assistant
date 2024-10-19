@@ -1,5 +1,6 @@
 from flask import Flask, request, render_template
 import spacy
+import os  # Import os module
 
 app = Flask(__name__)  
 
@@ -113,4 +114,6 @@ def index():
     return render_template("index.html", sections=[], complaint="")
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    # Bind to 0.0.0.0 and use PORT from environment variable or default to 10000
+    port = int(os.environ.get("PORT", 10000))
+    app.run(host='0.0.0.0', port=port, debug=True)
