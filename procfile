@@ -1,1 +1,1 @@
-web: gunicorn law_app:app
+gunicorn law_app:app
